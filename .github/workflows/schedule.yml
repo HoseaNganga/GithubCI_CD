@@ -1,0 +1,14 @@
+name: Scheduled event'
+
+on:
+  schedule:
+    - cron: "*/1 * * * *"
+
+  push:
+
+jobs:
+  Show-Scheduled_Event:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Displays a scheduled event
+        run: echo "This is a scheduled event"
