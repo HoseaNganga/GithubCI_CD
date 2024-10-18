@@ -13,11 +13,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Greet on Push
-        if: ${{ github.event_name === 'push' }}
+        if: ${{ github.event_name == 'push' }}
         run: echo 'Hello ${{ GITHUB_ACTOR }}. You have perfomed a ${{ github.event_name }} event'
       - name: Greet on Pull Request
-        if: ${{ github.event_name === 'pull_request' }}
+        if: ${{ github.event_name == 'pull_request' }}
         run: echo 'Hello ${{ GITHUB_ACTOR }}. You have perfomed a ${{ github.event_name }} event'
       - name: Greet on Issue Based Request
-        if: ${{ github.event_name === 'issues' }}
+        if: ${{ github.event_name == 'issues' }}
         run: echo 'Hello ${{ GITHUB_ACTOR }}. You have perfomed a ${{ github.event_name }} event'
