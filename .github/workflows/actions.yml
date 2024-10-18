@@ -1,0 +1,21 @@
+name: Action/Checkout Flow
+
+on:
+  push:
+
+jobs:
+  Action-CheckOut:
+    runs-on: ubuntu-latest
+    steps:
+      - name: List Files
+        run: |
+          pwd
+          ls
+      - name: Simple JavaScript Action-CheckOut
+        id: hello
+        uses: actions/hello-world-javascript-action@v1
+        with:
+          who-to-greet: ${{ github.actor }}
+      - name: Get the ouput time
+        run: |
+          echo "The output time is: ${{ steps.hello.outputs.time }}"
