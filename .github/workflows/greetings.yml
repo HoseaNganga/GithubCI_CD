@@ -1,16 +1,23 @@
-name: Greetings
+name: Custom Greetings Workflow
 
-on: [pull_request_target, issues]
+on:
+  push:
+    branches:
+      - master
+  pull_request:
 
+  issues:
+    types: [opened, labeled]
 jobs:
-  greeting:
+  CustomGreetings:
     runs-on: ubuntu-latest
-    permissions:
-      issues: write
-      pull-requests: write
     steps:
-    - uses: actions/first-interaction@v1
-      with:
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        issue-message: "Message that will be displayed on users' first issue"
-        pr-message: "Message that will be displayed on users' first pull request"
+      - name: Greet on Push
+        if: ${{ github.event_name === 'push' }}
+        run: echo 'Hello ${{ GITHUB_ACTOR }}. You have perfomed a ${{ github.event_name }} event'
+      - name: Greet on Pull Request
+        if: ${{ github.event_name === 'pull_request' }}
+        run: echo 'Hello ${{ GITHUB_ACTOR }}. You have perfomed a ${{ github.event_name }} event'
+      - name: Greet on Issue Based Request
+        if: ${{ github.event_name === 'issues' }}
+        run: echo 'Hello ${{ GITHUB_ACTOR }}. You have perfomed a ${{ github.event_name }} event'
