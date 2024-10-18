@@ -21,8 +21,8 @@ jobs:
     steps:
       - name: List of Default Github Environment Variables
         run: |
-          echo "Workflow: ${{ GITHUB_WORKFLOW }}"
-          echo "Repository: ${{ GITHUB_REPOSITORY }}"
-          echo "Event Name: ${{ GITHUB_EVENT_NAME }}"
-          echo "Actor: ${{ GITHUB_ACTOR }}"
-          echo "SHA: ${{ GITHUB_SHA }}"
+          echo "Workflow: ${{ github.workflow }}"
+          echo "Repository: ${{ github.repository }}"
+          echo "Event Name: ${{ github.event_name }}"
+          echo "Actor: ${{ github.actor }}"
+          echo "SHA: ${{ github.sha }}"
