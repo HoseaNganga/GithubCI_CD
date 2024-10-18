@@ -7,7 +7,7 @@ env:
   LIKE: Please Like
 
 jobs:
-  DISPLAYCUSTOMANDDEFAULTVARIABLES:
+  DISPLAYCUSTOMTVARIABLES:
     runs-on: ubuntu-latest
     env:
       SHARE: and Share
@@ -16,3 +16,13 @@ jobs:
         env:
           CHANNEL: JavaScript Savy
         run: echo $LIKE $SHARE our channel called $CHANNEL
+  DISPLAYDEFAULTVARIABLES:
+    runs-on: ubuntu-latest
+    steps:
+      - name: List of Default Github Environment Variables
+        run: |
+          echo "WorkFlow: ${{ GITHUB_WORKFLOW }}"  
+          echo "Repository: ${{ GITHUB_REPOSITORY }}"
+          echo "Event Name: ${{ GITHUB_EVENT_NAME }}"
+          echo "Actor: ${{ GITHUB_ACTOR }}"
+          echo "SHA: ${{ GITHUB_SHA }}"
