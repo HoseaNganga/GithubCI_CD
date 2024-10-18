@@ -1,0 +1,15 @@
+name: webhook workflow
+
+on:
+  repository_dispatch:
+    -types: webhook
+
+jobs:
+  DispatchWebhookResult:
+    runs-on: ubuntu-latest
+    steps:
+      - name: CheckOut Repository
+        uses: actions/checkout@v3
+      - name: Run Script
+        run: |
+          echo "Event Of Type: ${{ github.event.action }}"
