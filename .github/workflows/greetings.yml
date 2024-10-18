@@ -14,10 +14,10 @@ jobs:
     steps:
       - name: Greet on Push
         if: ${{ github.event_name == 'push' }}
-        run: echo 'Hello ${{ GITHUB_ACTOR }}. You have perfomed a ${{ github.event_name }} event'
+        run: echo 'Hello ${{ github.actor }}. You have perfomed a ${{ github.event_name }} event'
       - name: Greet on Pull Request
         if: ${{ github.event_name == 'pull_request' }}
-        run: echo 'Hello ${{ GITHUB_ACTOR }}. You have perfomed a ${{ github.event_name }} event'
+        run: echo 'Hello ${{ github.actor }}. You have perfomed a ${{ github.event_name }} event'
       - name: Greet on Issue Based Request
         if: ${{ github.event_name == 'issues' }}
-        run: echo 'Hello ${{ GITHUB_ACTOR }}. You have perfomed a ${{ github.event_name }} event'
+        run: echo 'Hello ${{ github.actor }}. You have perfomed a ${{ github.event_name }} event'
